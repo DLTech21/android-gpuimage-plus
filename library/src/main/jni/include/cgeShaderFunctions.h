@@ -10,7 +10,6 @@
 
 #include "cgeCommonDefine.h"
 #include "cgeGLFunctions.h"
-#include <cstring>
 
 namespace CGE
 {

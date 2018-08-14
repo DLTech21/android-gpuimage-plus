@@ -11,9 +11,7 @@
     <org.wysaid.view.ImageGLSurfaceView
         android:id="@+id/mainImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/seekBar"
-        android:layout_above="@+id/horizontalScroll"/>
+        android:layout_height="match_parent"/>
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -24,7 +22,6 @@
         />
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
