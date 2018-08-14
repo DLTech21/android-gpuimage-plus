@@ -1,11 +1,11 @@
 package org.wysaid.view;
 
 import android.content.Context;
-import android.hardware.Camera;
+import android.opengl.GLES20;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import java.nio.ByteBuffer;
+import org.wysaid.nativePort.CGEFrameRenderer;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -18,17 +18,17 @@ import javax.microedition.khronos.opengles.GL10;
 
 // A simple case for extra tracking.
 
-public class TrackingCameraGLSurfaceView extends CameraGLSurfaceViewWithBuffer {
+public class TrackingCameraGLSurfaceView extends CameraRecordGLSurfaceView {
 
     public TrackingCameraGLSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     public interface TrackingProc {
-        boolean setup(int width, int height);
+        boolean setup(CGEFrameRenderer renderer, int width, int height);
         void resize(int width, int height);
-        void processTracking(ByteBuffer luminanceBuffer);
-        void render(TrackingCameraGLSurfaceView glView);
+        void processTracking(CGEFrameRenderer renderer);
+        void render(CGEFrameRenderer renderer);
         void release();
     }
 
@@ -45,10 +45,10 @@ public class TrackingCameraGLSurfaceView extends CameraGLSurfaceViewWithBuffer {
             mTrackingProc = null;
         }
 
-        if (proc == null)
+        if (proc == null || mFrameRecorder == null)
             return true;
 
-        if(!proc.setup(mRecordWidth, mRecordHeight)) {
+        if(!proc.setup(mFrameRecorder, mRecordWidth, mRecordHeight)) {
             Log.e(LOG_TAG, "setup proc failed!");
             proc.release();
             return false;
@@ -73,16 +73,28 @@ public class TrackingCameraGLSurfaceView extends CameraGLSurfaceViewWithBuffer {
             return;
         }
 
-        if(mBufferUpdated && mTrackingProc != null) {
-            synchronized (mBufferUpdateLock) {
-                mTrackingProc.processTracking(mBufferY);
-            }
+        mSurfaceTexture.updateTexImage();
+        mSurfaceTexture.getTransformMatrix(mTransformMatrix);
+        mFrameRecorder.update(mTextureID, mTransformMatrix);
+
+        if(mTrackingProc != null) {
+
+            //`processTracking` is writing here for this case.
+            mTrackingProc.processTracking(mFrameRecorder);
+            mTrackingProc.render(mFrameRecorder);
         }
 
-        if(mTrackingProc == null) {
-            super.onDrawFrame(gl);
-        } else {
-            mTrackingProc.render(this);
+        mFrameRecorder.runProc();
+
+        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+
+        if(mIsUsingMask) {
+            GLES20.glEnable(GLES20.GL_BLEND);
+            GLES20.glBlendFunc(GLES20.GL_ONE, GLES20.GL_ONE_MINUS_SRC_ALPHA);
         }
+
+        mFrameRecorder.render(mDrawViewport.x, mDrawViewport.y, mDrawViewport.width, mDrawViewport.height);
+        GLES20.glDisable(GLES20.GL_BLEND);
     }
 }

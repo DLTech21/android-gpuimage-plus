@@ -3,6 +3,7 @@ package org.wysaid.cgeDemo;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ import org.wysaid.camera.CameraInstance;
 import org.wysaid.myUtils.FileUtil;
 import org.wysaid.myUtils.ImageUtil;
 import org.wysaid.myUtils.MsgUtil;
+import org.wysaid.nativePort.CGEFrameRecorder;
 import org.wysaid.nativePort.CGENativeLibrary;
 import org.wysaid.view.CameraRecordGLSurfaceView;
 
@@ -77,6 +80,7 @@ public class CameraDemoActivity extends AppCompatActivity {
             if (!mCameraView.isRecording()) {
                 btn.setText("Recording");
                 Log.i(LOG_TAG, "Start recording...");
+                mCameraView.setClearColor(1.0f, 0.0f, 0.0f, 0.3f);
                 recordFilename = ImageUtil.getPath() + "/rec_" + System.currentTimeMillis() + ".mp4";
 //                recordFilename = ImageUtil.getPath(CameraDemoActivity.this, false) + "/rec_1.mp4";
                 mCameraView.startRecording(recordFilename, new CameraRecordGLSurfaceView.StartRecordingCallback() {
@@ -96,6 +100,7 @@ public class CameraDemoActivity extends AppCompatActivity {
                 showText("Recorded as: " + recordFilename);
                 btn.setText("Recorded");
                 Log.i(LOG_TAG, "End recording...");
+                mCameraView.setClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 mCameraView.endRecording(new CameraRecordGLSurfaceView.EndRecordingCallback() {
                     @Override
                     public void endRecordingOK() {
@@ -158,7 +163,7 @@ public class CameraDemoActivity extends AppCompatActivity {
                         } else
                             showText("Take Shot failed!");
                     }
-                });
+                }, false);
             }
         });
 
@@ -196,6 +201,34 @@ public class CameraDemoActivity extends AppCompatActivity {
         });
 
         mCurrentInstance = this;
+
+        Button shapeBtn = (Button) findViewById(R.id.shapeBtn);
+        shapeBtn.setOnClickListener(new View.OnClickListener() {
+            private boolean mIsUsingShape = false;
+            Bitmap mBmp;
+
+            @Override
+            public void onClick(View v) {
+                mIsUsingShape = !mIsUsingShape;
+                if (mIsUsingShape) {
+                    if (mBmp == null) {
+                        mBmp = BitmapFactory.decodeResource(getResources(), R.drawable.mask1);
+                    }
+                    if (mBmp != null)
+                        mCameraView.setMaskBitmap(mBmp, false, new CameraRecordGLSurfaceView.SetMaskBitmapCallback() {
+                            @Override
+                            public void setMaskOK(CGEFrameRecorder recorder) {
+                                //flip mask
+                                if (mCameraView.isUsingMask())
+                                    recorder.setMaskFlipScale(1.0f, -1.0f);
+                            }
+                        });
+                } else {
+                    mCameraView.setMaskBitmap(null, false);
+                }
+
+            }
+        });
 
         Button switchBtn = (Button) findViewById(R.id.switchCameraBtn);
         switchBtn.setOnClickListener(new View.OnClickListener() {
@@ -236,8 +269,12 @@ public class CameraDemoActivity extends AppCompatActivity {
 
         mCameraView.setOnCreateCallback(new CameraRecordGLSurfaceView.OnCreateCallback() {
             @Override
-            public void createOver() {
-                Log.i(LOG_TAG, "view onCreate");
+            public void createOver(boolean success) {
+                if (success) {
+                    Log.i(LOG_TAG, "view create OK");
+                } else {
+                    Log.e(LOG_TAG, "view create failed!");
+                }
             }
         });
 

@@ -154,19 +154,17 @@ public class CameraInstance {
         return mCameraDevice != null;
     }
 
-    public synchronized void startPreview(SurfaceTexture texture, Camera.PreviewCallback callback) {
+    public synchronized void startPreview(SurfaceTexture texture) {
         Log.i(LOG_TAG, "Camera startPreview...");
         if(mIsPreviewing) {
             Log.e(LOG_TAG, "Err: camera is previewing...");
+//            stopPreview();
             return ;
         }
 
         if(mCameraDevice != null) {
             try {
                 mCameraDevice.setPreviewTexture(texture);
-//                mCameraDevice.addCallbackBuffer(callbackBuffer);
-//                mCameraDevice.setPreviewCallbackWithBuffer(callback);
-                mCameraDevice.setPreviewCallbackWithBuffer(callback);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -174,14 +172,6 @@ public class CameraInstance {
             mCameraDevice.startPreview();
             mIsPreviewing = true;
         }
-    }
-
-    public void startPreview(SurfaceTexture texture) {
-        startPreview(texture, null);
-    }
-
-    public void startPreview(Camera.PreviewCallback callback) {
-        startPreview(null, callback);
     }
 
     public synchronized void stopPreview() {

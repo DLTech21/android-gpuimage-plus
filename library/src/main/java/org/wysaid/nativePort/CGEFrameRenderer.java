@@ -142,10 +142,6 @@ public class CGEFrameRenderer {
         nativeBindImageFBO(mNativeAddress);
     }
 
-    public void swapImageFBO() {
-        nativeSwapBufferFBO(mNativeAddress);
-    }
-
     //nativeFilter 为 JNI 下的 CGEImageFilterInterfaceAbstract 或者其子类.
     public void processWithFilter(long nativeFilter) {
         nativeProcessWithFilter(mNativeAddress, nativeFilter);
@@ -186,7 +182,6 @@ public class CGEFrameRenderer {
 
     protected native long nativeGetImageHandler(long holder);
     protected native void nativeBindImageFBO(long holder);
-    protected native void nativeSwapBufferFBO(long holder);
 
     //辅助方法
     protected native void nativeProcessWithFilter(long holder, long nativeFilter);
