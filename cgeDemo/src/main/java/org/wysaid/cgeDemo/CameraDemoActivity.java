@@ -77,7 +77,7 @@ public class CameraDemoActivity extends AppCompatActivity {
             if (!mCameraView.isRecording()) {
                 btn.setText("Recording");
                 Log.i(LOG_TAG, "Start recording...");
-                recordFilename = ImageUtil.getPath() + "/rec_" + System.currentTimeMillis() + ".mp4";
+                recordFilename = ImageUtil.getPath() + "/" + System.currentTimeMillis() + ".mp4";
 //                recordFilename = ImageUtil.getPath(CameraDemoActivity.this, false) + "/rec_1.mp4";
                 mCameraView.startRecording(recordFilename, new CameraRecordGLSurfaceView.StartRecordingCallback() {
                     @Override

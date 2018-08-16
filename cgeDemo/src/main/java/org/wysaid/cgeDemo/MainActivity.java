@@ -14,11 +14,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
+
 import org.wysaid.common.Common;
 import org.wysaid.nativePort.CGENativeLibrary;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+
+import static com.yanzhenjie.permission.Permission.RECORD_AUDIO;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -239,6 +246,18 @@ public class MainActivity extends AppCompatActivity {
         //The second param will be passed as the second arg of the callback function.
         //第二个参数根据自身需要设置， 将作为 loadImage 第二个参数回传
         CGENativeLibrary.setLoadImageCallback(mLoadImageCallback, null);
+
+        AndPermission.with(this)
+                .permission(new String[]{Permission.CAMERA, Permission.READ_EXTERNAL_STORAGE,
+                        Permission.WRITE_EXTERNAL_STORAGE, RECORD_AUDIO})
+                .onGranted(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                    }
+                })
+                .start();
+
+
     }
 
 //    @Override
