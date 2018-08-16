@@ -160,8 +160,8 @@ LOCAL_CFLAGS := -mfloat-abi=softfp -mfpu=vfp -O3 -ffast-math -funroll-loops -fPI
 ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
 LOCAL_CFLAGS := $(LOCAL_CFLAGS) march=armv7-a -mfpu=neon
 endif
-LOCAL_SRC_FILES := ffmpeg/$(TARGET_ARCH_ABI)/libffmpeg.so
-LOCAL_EXPORT_C_INCLUDES := $(CGE_ROOT)/ffmpeg
+LOCAL_SRC_FILES := ffmpeg/$(TARGET_ARCH_ABI)/libijkffmpeg.so
+LOCAL_EXPORT_C_INCLUDES := $(CGE_ROOT)/ffmpeg/include
 
 # LOCAL_SHARED_LIBRARIES := x264
 

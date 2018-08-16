@@ -15,7 +15,7 @@ public class NativeLibraryLoader {
 //        System.loadLibrary("x264.142"); //compiled to static library in the new version.
 
 //        try {
-            System.loadLibrary("ffmpeg");
+            System.loadLibrary("ijkffmpeg");
             System.loadLibrary("CGE");
 
             //User defined mothods, not required. (including offscreen video rendering)
