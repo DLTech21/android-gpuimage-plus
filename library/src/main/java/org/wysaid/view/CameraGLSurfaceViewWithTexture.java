@@ -20,9 +20,9 @@ import android.util.Log;
 import org.wysaid.camera.CameraInstance;
 import org.wysaid.common.Common;
 import org.wysaid.common.FrameBufferObject;
-import org.wysaid.nativePort.CGEFrameRecorder;
-import org.wysaid.nativePort.CGEFrameRenderer;
-import org.wysaid.nativePort.CGENativeLibrary;
+import io.github.sy.CGEFrameRecorder;
+
+import io.github.sy.CGENativeLibrary;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

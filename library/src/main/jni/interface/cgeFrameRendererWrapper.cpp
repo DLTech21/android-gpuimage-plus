@@ -16,11 +16,11 @@ using namespace CGE;
 extern "C" {
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeCreate
  * Signature: ()Ljava/nio/ByteBuffer;
  */
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeCreateRenderer
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGEFrameRenderer_nativeCreateRenderer
   (JNIEnv *env, jobject)
 {
 	cgePrintGLInfo();
@@ -29,11 +29,11 @@ JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeCreate
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeInit
  * Signature: (Ljava/nio/ByteBuffer;IIII)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeInit
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRenderer_nativeInit
   (JNIEnv *env, jobject, jlong addr, jint srcW, jint srcH, jint dstW, jint dstH)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -42,11 +42,11 @@ JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeIni
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeUpdate
  * Signature: (Ljava/nio/ByteBuffer;I)V
  */
- JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeUpdate
+ JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeUpdate
   (JNIEnv *env, jobject, jlong addr, jint extTex, jfloatArray matrix)
 {
 	jfloat* mat = env->GetFloatArrayElements(matrix, nullptr);
@@ -56,11 +56,11 @@ JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeIni
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeRender
  * Signature: (Ljava/nio/ByteBuffer;IIII)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeRender
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeRender
   (JNIEnv *env, jobject, jlong addr, jint x, jint y, jint width, jint height)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -68,11 +68,11 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeRender
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetSrcRotation
  * Signature: (Ljava/nio/ByteBuffer;F)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetSrcRotation
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetSrcRotation
   (JNIEnv *env, jobject, jlong addr, jfloat rad)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -80,11 +80,11 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetSrcR
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetSrcFlipScale
  * Signature: (Ljava/nio/ByteBuffer;FF)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetSrcFlipScale
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetSrcFlipScale
   (JNIEnv *env, jobject, jlong addr, jfloat x, jfloat y)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -92,11 +92,11 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetSrcF
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetRenderRotation
  * Signature: (Ljava/nio/ByteBuffer;F)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetRenderRotation
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetRenderRotation
   (JNIEnv *env, jobject, jlong addr, jfloat rad)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -104,11 +104,11 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetRend
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetRenderFlipScale
  * Signature: (Ljava/nio/ByteBuffer;FF)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetRenderFlipScale
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetRenderFlipScale
   (JNIEnv *env, jobject, jlong addr, jfloat x, jfloat y)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -116,11 +116,11 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetRend
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetFilterWithConfig
  * Signature: (Ljava/nio/ByteBuffer;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetFilterWithConfig
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetFilterWithConfig
   (JNIEnv *env, jobject obj, jlong addr, jstring config)
 {
 	static CGETexLoadArg texLoadArg;
@@ -134,74 +134,74 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetFilt
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRenderer
+ * Class:     io_github_sy_CGEFrameRenderer
  * Method:    nativeSetFilterIntensity
  * Signature: (Ljava/nio/ByteBuffer;F)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetFilterIntensity
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetFilterIntensity
   (JNIEnv *env, jobject, jlong addr, jfloat intensity)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->setFilterIntensity(intensity);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSrcResize
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSrcResize
   (JNIEnv *env, jobject, jlong addr, jint width, jint height)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->srcResize(width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetMaskTexture
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetMaskTexture
   (JNIEnv *env, jobject, jlong addr, jint texID, jfloat aspectRatio)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->setMaskTexture(texID, aspectRatio);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetMaskTextureRatio
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetMaskTextureRatio
   (JNIEnv *env, jobject, jlong addr, jfloat aspectRatio)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->setMaskTextureRatio(aspectRatio);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeRelease
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeRelease
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	delete renderer;
 }
 
-JNIEXPORT jint JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeQueryBufferTexture
+JNIEXPORT jint JNICALL Java_io_github_sy_CGEFrameRenderer_nativeQueryBufferTexture
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	return (jint)renderer->getBufferTexture();
 }
 
-JNIEXPORT jint JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeQueryTargetTexture
+JNIEXPORT jint JNICALL Java_io_github_sy_CGEFrameRenderer_nativeQueryTargetTexture
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	return (jint)renderer->getTargetTexture();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetMaskRotation
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetMaskRotation
   (JNIEnv *env, jobject, jlong addr, jfloat rad)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->setMaskRotation(rad);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetMaskFlipScale
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetMaskFlipScale
   (JNIEnv *env, jobject, jlong addr, jfloat x, jfloat y)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->setMaskFlipScale(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeRunProc
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeRunProc
    (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -210,35 +210,35 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeRunProc
 
 /////////////////  Render Utils  /////////////////////////////
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeDrawCache
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeDrawCache
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->drawCache();
 }
 
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeGetImageHandler
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGEFrameRenderer_nativeGetImageHandler
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	return (jlong)renderer->getImageHandler();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeBindImageFBO
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeBindImageFBO
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->bindImageFBO();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSwapBufferFBO
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSwapBufferFBO
   (JNIEnv *, jobject, jlong addr)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
 	renderer->swapBufferFBO();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeProcessWithFilter
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeProcessWithFilter
   (JNIEnv *, jobject, jlong addr, jlong filter)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;
@@ -247,7 +247,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeProcess
 	renderer->getImageHandler()->processingWithFilter((CGEImageFilterInterfaceAbstract*)filter);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRenderer_nativeSetFilterWithAddr
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRenderer_nativeSetFilterWithAddr
   (JNIEnv *, jobject, jlong addr, jlong filter)
 {
 	CGEFrameRenderer* renderer = (CGEFrameRenderer*)addr;

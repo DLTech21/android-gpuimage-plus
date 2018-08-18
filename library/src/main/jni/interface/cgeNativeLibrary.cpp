@@ -24,11 +24,11 @@ using namespace CGE;
 extern "C" {
 
 /*
- * Class:     org_wysaid_nativePort_CGENativeLibrary
+ * Class:     io_github_sy_CGENativeLibrary
  * Method:    filterImage_MultipleEffects
  * Signature: (Landroid/graphics/Bitmap;Ljava/lang/String;)Landroid/graphics/Bitmap;
  */
-JNIEXPORT jobject JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeFilterImage_1MultipleEffects
+JNIEXPORT jobject JNICALL Java_io_github_sy_CGENativeLibrary_cgeFilterImage_1MultipleEffects
   (JNIEnv *env, jclass cls, jobject bmp, jstring config, jfloat intensity)
 {
     CGETexLoadArg texLoadArg;
@@ -121,11 +121,11 @@ JNIEXPORT jobject JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeFilterI
 }
 
 /*
- * Class:     org_wysaid_nativePort_CGENativeLibrary
+ * Class:     io_github_sy_CGENativeLibrary
  * Method:    filterImage_MultipleEffectsWriteBack
  * Signature: (Landroid/graphics/Bitmap;Ljava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeFilterImage_1MultipleEffectsWriteBack
+JNIEXPORT void JNICALL Java_io_github_sy_CGENativeLibrary_cgeFilterImage_1MultipleEffectsWriteBack
   (JNIEnv *env, jclass cls, jobject bmp, jstring config, jfloat intensity)
 {
     CGETexLoadArg texLoadArg;
@@ -198,7 +198,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeFilterImag
 
 }
 
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeCreateFilterWithConfig
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeCreateFilterWithConfig
   (JNIEnv *env, jclass, jstring config)
 {
     CGETexLoadArg texLoadArg;
@@ -221,7 +221,7 @@ JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeCreateFil
     return (jlong)filter;
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeDeleteFilterWithAddress
+JNIEXPORT void JNICALL Java_io_github_sy_CGENativeLibrary_cgeDeleteFilterWithAddress
   (JNIEnv *env, jclass, jlong addr)
 {
     delete (CGEImageFilterInterfaceAbstract*)addr;
@@ -229,7 +229,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeDeleteFilt
 
 // filterType: normal, keep_ratio, tile
 
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeCreateBlendFilter
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeCreateBlendFilter
   (JNIEnv *env, jclass, jint blendMode, jint texID, jint texWidth, jint texHeight, jint filterType, jfloat intensity)
 {
     CGEBlendWithResourceFilter* filter = nullptr;

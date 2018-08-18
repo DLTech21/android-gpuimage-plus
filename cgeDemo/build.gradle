@@ -11,17 +11,39 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        app_release {
+            keyAlias 'xpinporn'
+            keyPassword 'pinporn2018'
+            storeFile file('../xpinporn.jks')
+            storePassword 'pinporn2018'
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig signingConfigs.app_release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.app_release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
+    repositories {
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.2.0'
-    compile project(':library')
+    compile (name:'library-release', ext:'aar')
+    compile 'com.yanzhenjie:permission:2.0.0-rc4'
 }

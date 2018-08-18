@@ -17,7 +17,7 @@ extern "C" {
 
 /////////////////   ffmpeg   /////////////////////////
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFFmpegNativeLibrary_avRegisterAll
+JNIEXPORT void JNICALL Java_io_github_sy_IjkFFmpegNativeLibrary_init
   (JNIEnv *, jclass); //注册 ffmpeg
 
 

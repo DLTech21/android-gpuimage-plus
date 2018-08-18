@@ -19,7 +19,7 @@ import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 
 import org.wysaid.common.Common;
-import org.wysaid.nativePort.CGENativeLibrary;
+import io.github.sy.CGENativeLibrary;
 
 import java.io.IOException;
 import java.io.InputStream;

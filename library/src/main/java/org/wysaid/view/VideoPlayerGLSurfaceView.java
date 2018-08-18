@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.Surface;
 
 import org.wysaid.common.Common;
-import org.wysaid.nativePort.CGEFrameRenderer;
+import io.github.sy.CGEFrameRenderer;
 import org.wysaid.texUtils.TextureRenderer;
 
 import java.nio.IntBuffer;

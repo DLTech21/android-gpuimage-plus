@@ -15,4 +15,4 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep class org.wysaid.nativePort.** { *; }
+-keep class io.github.sy.** { *; }

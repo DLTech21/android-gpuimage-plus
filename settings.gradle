@@ -1,1 +1,2 @@
-include ':library', ':cgeDemo'
+//include ':library'
+include ':cgeDemo'

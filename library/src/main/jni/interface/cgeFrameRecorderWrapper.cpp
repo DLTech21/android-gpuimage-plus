@@ -18,11 +18,11 @@ using namespace CGE;
 extern "C" {
 
 /*
- * Class:     org_wysaid_nativePort_CGEFrameRecorder
+ * Class:     io_github_sy_CGEFrameRecorder
  * Method:    nativeCreate
  * Signature: ()Ljava/nio/ByteBuffer;
  */
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeCreateRecorder
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGEFrameRecorder_nativeCreateRecorder
   (JNIEnv *env, jobject)
 {
 	cgePrintGLInfo();
@@ -32,7 +32,7 @@ JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeCreate
 
 //视频录制相关 API
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeStartRecording
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeStartRecording
   (JNIEnv *env, jobject, jlong addr, jint fps, jstring filename, jint bitRate)
 {
 	const char* path = env->GetStringUTFChars(filename, 0);
@@ -42,63 +42,63 @@ JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSta
 	return ret;
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeIsRecordingStarted
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeIsRecordingStarted
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->isRecordingStarted();
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeEndRecording
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeEndRecording
   (JNIEnv *env, jobject, jlong addr, jboolean shouldSave)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->endRecording(shouldSave);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativePauseRecording
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativePauseRecording
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	recorder->pauseRecording();
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeIsRecordingPaused
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeIsRecordingPaused
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->isRecordingPaused();
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeResumeRecording
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeResumeRecording
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->resumeRecording();
 }
 
-JNIEXPORT jdouble JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeGetTimestamp
+JNIEXPORT jdouble JNICALL Java_io_github_sy_CGEFrameRecorder_nativeGetTimestamp
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->getRecordingTimestamp();
 }
 
-JNIEXPORT jdouble JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeGetVideoStreamtime
+JNIEXPORT jdouble JNICALL Java_io_github_sy_CGEFrameRecorder_nativeGetVideoStreamtime
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->getVideoStreamTime();
 }
 
-JNIEXPORT jdouble JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeGetAudioStreamtime
+JNIEXPORT jdouble JNICALL Java_io_github_sy_CGEFrameRecorder_nativeGetAudioStreamtime
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	return recorder->getAudioStreamTime();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeRecordImageFrame
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeRecordImageFrame
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
@@ -113,7 +113,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeRecordI
 // 	return c[0] == 0xab;
 // }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeRecordAudioFrame
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeRecordAudioFrame
   (JNIEnv *env, jobject, jlong addr, jobject audioBuffer, jint bufferLen)
 {
 	unsigned short* buffer = (unsigned short*)env->GetDirectBufferAddress(audioBuffer);
@@ -150,7 +150,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeRecordA
 
 /////////////////  Face Detection  /////////////////////////////
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSetGlobalFilter
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeSetGlobalFilter
   (JNIEnv *env, jobject, jlong addr, jstring config)
 {
 	static CGETexLoadArg texLoadArg;
@@ -163,7 +163,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSetGlob
 	env->ReleaseStringUTFChars(config, configStr);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSetBeautifyFilter
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeSetBeautifyFilter
   (JNIEnv *, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
@@ -190,14 +190,14 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSetBeau
 	CGE_LOG_INFO("启用美化效果!");
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeSetGlobalFilterIntensity
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeSetGlobalFilterIntensity
   (JNIEnv *env, jobject, jlong addr, jfloat intensity)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	recorder->setGlobalFilterIntensity(intensity);	
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFrameRecorder_nativeIsGlobalFilterEnabled
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFrameRecorder_nativeIsGlobalFilterEnabled
   (JNIEnv *, jobject, jlong addr)
 {
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;

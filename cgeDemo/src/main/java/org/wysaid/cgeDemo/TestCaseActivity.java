@@ -16,12 +16,13 @@ import org.wysaid.common.SharedContext;
 import org.wysaid.myUtils.FileUtil;
 import org.wysaid.myUtils.ImageUtil;
 import org.wysaid.myUtils.MsgUtil;
-import org.wysaid.nativePort.CGEFFmpegNativeLibrary;
-import org.wysaid.nativePort.CGEImageHandler;
-import org.wysaid.nativePort.CGENativeLibrary;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import io.github.sy.CGEImageHandler;
+import io.github.sy.CGENativeLibrary;
+import io.github.sy.IjkFFmpegNativeLibrary;
 
 public class TestCaseActivity extends AppCompatActivity {
 
@@ -96,7 +97,7 @@ public class TestCaseActivity extends AppCompatActivity {
 
                 //bmp is used for watermark, (just pass null if you don't want that)
                 //and ususally the blend mode is CGE_BLEND_ADDREV for watermarks.
-                CGEFFmpegNativeLibrary.generateVideoWithFilter(outputFilename, inputFileName, "@adjust lut late_sunset.png", 1.0f, bmp, CGENativeLibrary.TextureBlendMode.CGE_BLEND_ADDREV, 1.0f, false);
+                IjkFFmpegNativeLibrary.generateVideoWithFilter(outputFilename, inputFileName, "@adjust lut late_sunset.png", 1.0f, bmp, CGENativeLibrary.TextureBlendMode.CGE_BLEND_ADDREV, 1.0f, false);
 
                 showMsg("Done! The file is generated at: " + outputFilename);
                 Log.i(LOG_TAG, "Done! The file is generated at: " + outputFilename);

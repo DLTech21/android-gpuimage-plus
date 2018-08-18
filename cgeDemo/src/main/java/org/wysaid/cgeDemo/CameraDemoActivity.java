@@ -20,7 +20,7 @@ import org.wysaid.camera.CameraInstance;
 import org.wysaid.myUtils.FileUtil;
 import org.wysaid.myUtils.ImageUtil;
 import org.wysaid.myUtils.MsgUtil;
-import org.wysaid.nativePort.CGENativeLibrary;
+import io.github.sy.CGENativeLibrary;
 import org.wysaid.view.CameraRecordGLSurfaceView;
 
 public class CameraDemoActivity extends AppCompatActivity {

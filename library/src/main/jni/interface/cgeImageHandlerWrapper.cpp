@@ -18,35 +18,35 @@ extern "C"
 {
 
 
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeCreateHandler
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGEImageHandler_nativeCreateHandler
   (JNIEnv *env, jobject)
 {
 	CGEImageHandlerAndroid* handler = new CGEImageHandlerAndroid();
 	return (jlong)handler;
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeInitWithBitmap
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEImageHandler_nativeInitWithBitmap
   (JNIEnv *env, jobject, jlong addr, jobject bmp)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	return handler->initWithBitmap(env, bmp, true); //use revision.
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeInitWithSize
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEImageHandler_nativeInitWithSize
   (JNIEnv *, jobject, jlong addr, jint width, jint height)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	return handler->initWithRawBufferData(nullptr, width, height, CGE_FORMAT_RGBA_INT8);
 }
 
-JNIEXPORT jobject JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeGetResultBitmap
+JNIEXPORT jobject JNICALL Java_io_github_sy_CGEImageHandler_nativeGetResultBitmap
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	return handler->getResultBitmap(env);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetDrawerRotation
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSetDrawerRotation
   (JNIEnv *env, jobject, jlong addr, jfloat rad)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;	
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetDrawe
 	drawer->setRotation(rad);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetDrawerFlipScale
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSetDrawerFlipScale
   (JNIEnv *env, jobject, jlong addr, jfloat x, jfloat y)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
@@ -62,7 +62,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetDrawe
 	drawer->setFlipScale(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilterWithAddress
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSetFilterWithAddress
   (JNIEnv *, jobject, jlong addr, jlong filter)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
@@ -71,7 +71,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilte
 	handler->addImageFilter((CGEImageFilterInterfaceAbstract *)filter);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilterWithConfig
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEImageHandler_nativeSetFilterWithConfig
   (JNIEnv *env, jobject, jlong addr, jstring config, jboolean shouldCleanOlder, jboolean shouldProcess)
 {	
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
@@ -122,7 +122,7 @@ JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetF
 	return true;
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilterIntensity
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSetFilterIntensity
   (JNIEnv *env, jobject, jlong addr, jfloat intensity, jboolean shouldProcess)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
@@ -141,7 +141,7 @@ JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilte
 	}
 }
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetFilterIntensityAtIndex
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEImageHandler_nativeSetFilterIntensityAtIndex
   (JNIEnv *env, jobject, jlong addr, jfloat intensity, jint index, jboolean shouldProcess)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
@@ -189,56 +189,56 @@ JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetF
 	return true;
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeDrawResult
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeDrawResult
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->drawResult();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeBindTargetFBO
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeBindTargetFBO
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->useImageFBO();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSetAsTarget
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSetAsTarget
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->setAsTarget();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeSwapBufferFBO
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeSwapBufferFBO
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->swapBufferFBO();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeRevertImage
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeRevertImage
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->revertToKeptResult();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeProcessingFilters
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeProcessingFilters
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	handler->processingFilters();
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeRelease
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeRelease
   (JNIEnv *env, jobject, jlong addr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;
 	delete handler;
 }
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEImageHandler_nativeProcessWithFilter
+JNIEXPORT void JNICALL Java_io_github_sy_CGEImageHandler_nativeProcessWithFilter
   (JNIEnv *env, jobject, jlong addr, jlong filterAddr)
 {
 	CGEImageHandlerAndroid* handler = (CGEImageHandlerAndroid*)addr;

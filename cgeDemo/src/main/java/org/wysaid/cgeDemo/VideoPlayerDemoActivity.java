@@ -20,7 +20,7 @@ import org.wysaid.common.Common;
 import org.wysaid.myUtils.FileUtil;
 import org.wysaid.myUtils.ImageUtil;
 import org.wysaid.myUtils.MsgUtil;
-import org.wysaid.nativePort.CGEFrameRenderer;
+import io.github.sy.CGEFrameRenderer;
 import org.wysaid.view.VideoPlayerGLSurfaceView;
 
 public class VideoPlayerDemoActivity extends AppCompatActivity {

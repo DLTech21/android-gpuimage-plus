@@ -16,19 +16,19 @@
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeSetupTracker
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFaceTracker_nativeSetupTracker
   (JNIEnv *, jclass, jstring, jstring, jstring);
 
-JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeCreateFaceTracker
+JNIEXPORT jlong JNICALL Java_io_github_sy_CGEFaceTracker_nativeCreateFaceTracker
   (JNIEnv *, jobject);
 
-JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeRelease
+JNIEXPORT void JNICALL Java_io_github_sy_CGEFaceTracker_nativeRelease
   (JNIEnv *, jobject, jlong);
 
-JNIEXPORT jfloatArray JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeDetectFaceWithSimpleResult
+JNIEXPORT jfloatArray JNICALL Java_io_github_sy_CGEFaceTracker_nativeDetectFaceWithSimpleResult
   (JNIEnv *, jobject, jlong, jobject, jboolean);
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeDetectFaceWithBuffer
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFaceTracker_nativeDetectFaceWithBuffer
   (JNIEnv *, jobject, jlong, jobject, jint, jint, jint, jint, jobject);
 
 #ifdef __cplusplus

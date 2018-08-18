@@ -14,7 +14,7 @@ using namespace CGE;
 extern "C"
 {
 
-	JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeSetupTracker(JNIEnv *env, jclass, jstring model, jstring tri, jstring con)
+	JNIEXPORT void JNICALL Java_io_github_sy_CGEFaceTracker_nativeSetupTracker(JNIEnv *env, jclass, jstring model, jstring tri, jstring con)
 	{
 		if(model == nullptr || tri == nullptr || con == nullptr)
 		{
@@ -36,20 +36,20 @@ extern "C"
 		CGE_LOG_INFO("JNI Face Tracker is OK!");
 	}
 
-	JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeCreateFaceTracker(JNIEnv *env, jobject)
+	JNIEXPORT jlong JNICALL Java_io_github_sy_CGEFaceTracker_nativeCreateFaceTracker(JNIEnv *env, jobject)
 	{
 		CGEFaceTrackerWrapper* tracker = new CGEFaceTrackerWrapper();
 		return (jlong)tracker;
 	}
 
-	JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeRelease(JNIEnv *env, jobject, jlong addr)
+	JNIEXPORT void JNICALL Java_io_github_sy_CGEFaceTracker_nativeRelease(JNIEnv *env, jobject, jlong addr)
 	{
 		CGEFaceTrackerWrapper* tracker = (CGEFaceTrackerWrapper*)addr;
 		delete tracker;
 		CGE_LOG_INFO("tracker release...");
 	}
 
-	JNIEXPORT jfloatArray JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeDetectFaceWithSimpleResult(JNIEnv *env, jobject, jlong addr, jobject bmp, jboolean drawFeature)
+	JNIEXPORT jfloatArray JNICALL Java_io_github_sy_CGEFaceTracker_nativeDetectFaceWithSimpleResult(JNIEnv *env, jobject, jlong addr, jobject bmp, jboolean drawFeature)
 	{
 		CGEFaceTrackerWrapper* tracker = (CGEFaceTrackerWrapper*)addr;
 
@@ -120,7 +120,7 @@ extern "C"
 
 	/////////////////////////
 
-	JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFaceTracker_nativeDetectFaceWithBuffer(JNIEnv *env, jobject, jlong addr, jobject imgBuffer, jint w, jint h, jint channel, jint bytesPerRow, jobject keyPointBuffer)
+	JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFaceTracker_nativeDetectFaceWithBuffer(JNIEnv *env, jobject, jlong addr, jobject imgBuffer, jint w, jint h, jint channel, jint bytesPerRow, jobject keyPointBuffer)
 	{
 		CGEFaceTrackerWrapper* tracker = (CGEFaceTrackerWrapper*)addr;
 		unsigned short* imgData = (unsigned short*)env->GetDirectBufferAddress(imgBuffer);

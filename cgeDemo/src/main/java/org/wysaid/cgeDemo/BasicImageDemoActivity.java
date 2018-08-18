@@ -15,10 +15,11 @@ import android.widget.SeekBar;
 import org.wysaid.common.Common;
 import org.wysaid.myUtils.ImageUtil;
 import org.wysaid.myUtils.MsgUtil;
-import org.wysaid.nativePort.CGEImageHandler;
 import org.wysaid.view.ImageGLSurfaceView;
 
 import java.io.InputStream;
+
+import io.github.sy.CGEImageHandler;
 
 /**
  * @Author: wangyang

@@ -10,11 +10,12 @@ import android.util.Log;
 import org.wysaid.common.Common;
 import org.wysaid.common.FrameBufferObject;
 import org.wysaid.common.ProgramObject;
-import org.wysaid.nativePort.CGEFaceTracker;
 import org.wysaid.view.TrackingCameraGLSurfaceView;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+
+import io.github.sy.CGEFaceTracker;
 
 /**
  * @Author: wangyang

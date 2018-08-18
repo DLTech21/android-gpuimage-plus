@@ -24,7 +24,7 @@ extern "C"
 {
 	////////// ffmpeg ////////////////////
 
-	JNIEXPORT void JNICALL Java_org_wysaid_nativePort_CGEFFmpegNativeLibrary_avRegisterAll(JNIEnv *, jclass)
+	JNIEXPORT void JNICALL Java_io_github_sy_IjkFFmpegNativeLibrary_init(JNIEnv *, jclass)
 	{
 		CGE_LOG_INFO("registerFFmpeg...");
 	    av_register_all();

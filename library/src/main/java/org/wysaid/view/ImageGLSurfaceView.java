@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import org.wysaid.common.Common;
-import org.wysaid.nativePort.CGEImageHandler;
+import io.github.sy.CGEImageHandler;
 import org.wysaid.texUtils.TextureRenderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
