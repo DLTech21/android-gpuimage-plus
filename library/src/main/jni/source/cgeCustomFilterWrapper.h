@@ -14,13 +14,13 @@
 
 extern "C"
 {
-	JNIEXPORT jobject JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeFilterImageWithCustomFilter
+	JNIEXPORT jobject JNICALL Java_io_github_sy_CGENativeLibrary_cgeFilterImageWithCustomFilter
   (JNIEnv *env, jclass cls, jobject bmp, jint index, jfloat intensity, jboolean hasContext, jboolean useWrapper);
 
-  	JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeCreateCustomNativeFilter
+  	JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeCreateCustomNativeFilter
   (JNIEnv *env, jclass cls, jint index, jfloat intensity, jboolean useWrapper);
 
-  	JNIEXPORT jlong JNICALL Java_org_wysaid_nativePort_CGENativeLibrary_cgeGetCustomFilterNum
+  	JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeGetCustomFilterNum
   (JNIEnv *env, jclass cls);
 
 }

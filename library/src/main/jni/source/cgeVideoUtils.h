@@ -24,7 +24,7 @@ namespace CGE
 extern "C" {
 #endif
 
-JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFFmpegNativeLibrary_nativeGenerateVideoWithFilter
+JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFFmpegNativeLibrary_nativeGenerateVideoWithFilter
   (JNIEnv *, jclass, jstring, jstring, jstring, jfloat, jobject, jint, jfloat, jboolean);
 
 #ifdef __cplusplus

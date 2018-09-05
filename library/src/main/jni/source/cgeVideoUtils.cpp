@@ -21,7 +21,7 @@
 
 extern "C"
 {
-    JNIEXPORT jboolean JNICALL Java_org_wysaid_nativePort_CGEFFmpegNativeLibrary_nativeGenerateVideoWithFilter(JNIEnv *env, jclass cls, jstring outputFilename, jstring inputFilename, jstring filterConfig, jfloat filterIntensity, jobject blendImage, jint blendMode, jfloat blendIntensity, jboolean mute)
+    JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEFFmpegNativeLibrary_nativeGenerateVideoWithFilter(JNIEnv *env, jclass cls, jstring outputFilename, jstring inputFilename, jstring filterConfig, jfloat filterIntensity, jobject blendImage, jint blendMode, jfloat blendIntensity, jboolean mute)
     {
         CGE_LOG_INFO("##### nativeGenerateVideoWithFilter!!!");
         
@@ -40,7 +40,7 @@ extern "C"
         
         CGETextureResult texResult = {0};
         
-        jclass nativeLibraryClass = env->FindClass("org/wysaid/nativePort/CGENativeLibrary");
+        jclass nativeLibraryClass = env->FindClass("io/github/sy/CGENativeLibrary");
         
         if(blendImage != nullptr)
             texResult = cgeLoadTexFromBitmap_JNI(env, nativeLibraryClass, blendImage);
@@ -51,7 +51,7 @@ extern "C"
 
         CGETexLoadArg texLoadArg;
         texLoadArg.env = env;
-        texLoadArg.cls = env->FindClass("org/wysaid/nativePort/CGENativeLibrary");
+        texLoadArg.cls = env->FindClass("io/github/sy/CGENativeLibrary");
         
         bool retStatus = CGE::cgeGenerateVideoWithFilter(outFilenameStr, inFilenameStr, configStr, filterIntensity, texResult.texID, (CGETextureBlendMode)blendMode, blendIntensity, mute, &texLoadArg);
         

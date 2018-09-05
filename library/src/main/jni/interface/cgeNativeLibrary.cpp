@@ -203,7 +203,7 @@ JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeCreateFilterWithCo
 {
     CGETexLoadArg texLoadArg;
     texLoadArg.env = env;
-    texLoadArg.cls = env->FindClass("org/wysaid/nativePort/CGENativeLibrary");
+    texLoadArg.cls = env->FindClass("io/github/sy/CGENativeLibrary");
 
     const char* configStr = env->GetStringUTFChars(config, 0);
 

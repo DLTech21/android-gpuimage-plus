@@ -155,7 +155,7 @@ JNIEXPORT void JNICALL Java_io_github_sy_CGEFrameRecorder_nativeSetGlobalFilter
 {
 	static CGETexLoadArg texLoadArg;
 	texLoadArg.env = env;
-	texLoadArg.cls = env->FindClass("org/wysaid/nativePort/CGENativeLibrary");
+	texLoadArg.cls = env->FindClass("io/github/sy/CGENativeLibrary");
 
 	CGEFrameRecorder* recorder = (CGEFrameRecorder*)addr;
 	const char* configStr = env->GetStringUTFChars(config, 0);

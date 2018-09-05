@@ -28,7 +28,7 @@ extern "C"
 		JNIEnv *env = texLoadArg->env;
 		jclass cls = texLoadArg->cls;
 
-		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByName", "(Ljava/lang/String;)Lorg/wysaid/nativePort/CGENativeLibrary$TextureResult;");
+		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByName", "(Ljava/lang/String;)Lio/github/sy/CGENativeLibrary$TextureResult;");
 
 		if(loadTextureMethod == nullptr)
 		{
@@ -36,7 +36,7 @@ extern "C"
 			return 0;
 		}
 
-		jclass texResult = env->FindClass("org/wysaid/nativePort/CGENativeLibrary$TextureResult");
+		jclass texResult = env->FindClass("io/github/sy/CGENativeLibrary$TextureResult");
 		
 		jfieldID textureFieldID = env->GetFieldID(texResult,"texID","I");
 		jfieldID texWidthFieldID = env->GetFieldID(texResult,"width","I");
@@ -69,7 +69,7 @@ extern "C"
 	{
 		CGETextureResult result = {0};
 
-		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByBitmap", "(Landroid/graphics/Bitmap;)Lorg/wysaid/nativePort/CGENativeLibrary$TextureResult;");
+		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByBitmap", "(Landroid/graphics/Bitmap;)Lio/github/sy/CGENativeLibrary$TextureResult;");
 
 		if(loadTextureMethod == nullptr)
 		{
@@ -77,7 +77,7 @@ extern "C"
 			return result;
 		}
 
-		jclass texResult = env->FindClass("org/wysaid/nativePort/CGENativeLibrary$TextureResult");
+		jclass texResult = env->FindClass("io/github/sy/CGENativeLibrary$TextureResult");
 		
 		jfieldID textureFieldID = env->GetFieldID(texResult,"texID","I");
 		jfieldID texWidthFieldID = env->GetFieldID(texResult,"width","I");
@@ -101,7 +101,7 @@ extern "C"
 	{
 		CGETextureResult result = {0};
 
-		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByFile", "(Ljava/lang/String;)Lorg/wysaid/nativePort/CGENativeLibrary$TextureResult;");
+		jmethodID loadTextureMethod = env->GetStaticMethodID(cls, "loadTextureByFile", "(Ljava/lang/String;)Lio/github/sy/CGENativeLibrary$TextureResult;");
 
 		if(loadTextureMethod == nullptr)
 		{
@@ -109,7 +109,7 @@ extern "C"
 			return result;
 		}
 
-		jclass texResult = env->FindClass("org/wysaid/nativePort/CGENativeLibrary$TextureResult");
+		jclass texResult = env->FindClass("io/github/sy/CGENativeLibrary$TextureResult");
 		
 		jfieldID textureFieldID = env->GetFieldID(texResult,"texID","I");
 		jfieldID texWidthFieldID = env->GetFieldID(texResult,"width","I");

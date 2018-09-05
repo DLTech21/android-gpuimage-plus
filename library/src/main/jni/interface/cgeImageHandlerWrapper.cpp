@@ -98,7 +98,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_sy_CGEImageHandler_nativeSetFilterWith
 		CGETexLoadArg texLoadArg;
 		
 		texLoadArg.env = env;
-		texLoadArg.cls = env->FindClass("org/wysaid/nativePort/CGENativeLibrary");
+		texLoadArg.cls = env->FindClass("io/github/sy/CGENativeLibrary");
 
 		CGEMutipleEffectFilter* filter = new CGEMutipleEffectFilter();
 		filter->setTextureLoadFunction(cgeGlobalTextureLoadFunc, &texLoadArg);
