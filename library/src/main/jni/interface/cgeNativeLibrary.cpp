@@ -18,7 +18,7 @@
 #include "cgeFilters.h"
 
 #include "cgeUtilFunctions.h"
-
+#include <sys/ptrace.h>
 using namespace CGE;
 
 extern "C" {
@@ -268,6 +268,22 @@ JNIEXPORT jlong JNICALL Java_io_github_sy_CGENativeLibrary_cgeCreateBlendFilter
     return (jlong)filter;    
 }
 
+jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    ptrace(PTRACE_TRACEME, 0, 0, 0);//反调试
+
+    JNIEnv *env = NULL;
+    if (vm->GetEnv((void **) &env, JNI_VERSION_1_4) != JNI_OK) {
+        return JNI_ERR;
+    }
+
+    char *sha1 = getSha1(env);
+    jboolean result = checkValidity(env,sha1);
+    if(result){
+        return JNI_VERSION_1_4;
+    }else{
+        return JNI_ERR;
+    }
+}
 
 }
 

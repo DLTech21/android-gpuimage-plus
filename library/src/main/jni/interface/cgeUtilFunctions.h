@@ -38,6 +38,8 @@ GLuint cgeGlobalTextureLoadFunc(const char* sourceName, GLint* w, GLint* h, void
 CGETextureResult cgeLoadTexFromBitmap_JNI(JNIEnv* env, jclass cls, jobject bitmap);
 CGETextureResult cgeLoadTexFromFile_JNI(JNIEnv* env, jclass cls, jstring imgFile);
 
+char* getSha1(JNIEnv *env);
+jboolean checkValidity(JNIEnv *env,char *sha1);
 #ifdef __cplusplus
 }
 #endif
