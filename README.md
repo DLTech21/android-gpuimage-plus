@@ -3,6 +3,12 @@ Image, Camera And Video Filters Based On OpenGL (ES2.0).
 
 >To get pure lib without ffmpeg(No feature of video recording), please checkout the branch [min](https://github.com/wysaid/android-gpuimage-plus/tree/min). The whole jni module will be less than 600KB.
 
+## New Feature
+
+See the `image deform demo`.
+
+![](screenshots/6.gif) ![](screenshots/5.gif)
+
 ## Gradle dependency ##
 
 ```
@@ -13,16 +19,16 @@ repositories {
 //Choose only one of them
 dependencies {
     //All arch: armeabi, armeabi-v7a, arm64-v8a, mips, x86
-    compile 'org.wysaid:gpuimage-plus:2.5.1'
+    compile 'org.wysaid:gpuimage-plus:2.6.1'
     
     //Only armeabi-v7a 
-    compile 'org.wysaid:gpuimage-plus:2.5.1-armv7a' //Recommended
+    compile 'org.wysaid:gpuimage-plus:2.6.1-armv7a' //Recommended
 
     //Pure graphics lib without ffmpeg. (all arch for branch 'min')
-    compile 'org.wysaid:gpuimage-plus:2.5.1-min'
+    compile 'org.wysaid:gpuimage-plus:2.6.1-min'
 
     //Pure graphics lib without ffmpeg. (arch armv7a for branch 'min')
-    compile 'org.wysaid:gpuimage-plus:2.5.1-min-armv7a' //Recommended
+    compile 'org.wysaid:gpuimage-plus:2.6.1-min-armv7a' //Recommended
 }
 ```
 
@@ -168,9 +174,11 @@ __Or to do with a [CGEImageHandler](https://github.com/wysaid/android-gpuimage-p
 
 ### 3. Filter Rule String ###
 
-En: [https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-En](https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-En "http://wysaid.org")
+Doc: <https://github.com/wysaid/android-gpuimage-plus/wiki>
 
-Ch: [https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule](https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule "http://wysaid.org")
+En: [https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-(EN)](https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-(EN) "http://wysaid.org")
+
+Ch: [https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-(ZH)](https://github.com/wysaid/android-gpuimage-plus/wiki/Parsing-String-Rule-(ZH) "http://wysaid.org")
 
 ## Tool ##
 
